@@ -1,12 +1,23 @@
 ﻿Console.WriteLine("=== Tiny Calculator ===");
-Console.Write("Dividend: ");
-int.TryParse(Console.ReadLine(), out int dividend);
-Console.Write("Divisor: ");
-int.TryParse(Console.ReadLine(), out int divisor);
+bool x;
+int dividend, divisor;
+do
+{
+    Console.Write("Dividend: ");
+    x = int.TryParse(Console.ReadLine(), out dividend);
+}
+while (!x);
+
+do
+{
+    Console.Write("Divisor: ");
+    x = int.TryParse(Console.ReadLine(), out divisor);
+}
+while (!x);
 
 if(divisor == 0)
     throw new DivideByZeroException("Cannot divide by 0!");
 
 Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine($"Result: {(float)dividend/divisor}");
+Console.WriteLine($"\nResult: {(float)dividend/divisor}");
 Console.ResetColor();
