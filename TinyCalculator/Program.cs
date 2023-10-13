@@ -1,8 +1,7 @@
 ﻿Console.WriteLine("=== Tiny Calculator ===");
-Console.Write("Dividend: ");
-int dividend = int.Parse(Console.ReadLine());
-Console.Write("Divisor: ");
-int divisor = int.Parse(Console.ReadLine());
+
+int dividend = GetNumber("Enter dividend: ");
+int divisor = GetNumber("Enter divisor: ");
 
 if(divisor == 0)
 {
@@ -11,5 +10,23 @@ if(divisor == 0)
 }
 
 Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine($"Result: {(float)dividend/(float)divisor}");
+Console.WriteLine($"\nResult: {(float)dividend/divisor}");
 Console.ResetColor();
+
+static int GetNumber(string text)
+{
+    uint attempts = 0;
+    while(true)
+    {
+        Console.Write(text);
+        if (int.TryParse(Console.ReadLine(), out var number))
+            return number;
+        Console.WriteLine("Please enter a valid number!\n");
+        attempts++;
+        if(attempts == 10)
+        {
+            Console.WriteLine("You are too fucking dumb! Bye");
+            Environment.Exit(0);
+        }
+    }
+}
