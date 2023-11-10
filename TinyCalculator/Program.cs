@@ -1,17 +1,23 @@
 ﻿Console.WriteLine("=== Tiny Calculator ===");
 
 int dividend = GetNumber("Enter dividend: ");
-int divisor = GetNumber("Enter divisor: ");
-
-if(divisor == 0)
+while(true)
 {
-    Console.WriteLine("Divisor cannot be 0!");
-    return;
+    int divisor = GetNumber("Enter divisor: ");
+
+    if (divisor == 0)
+    {
+        Console.WriteLine("Divisor cannot be 0!");
+        return;
+    }
+
+    Console.ForegroundColor = ConsoleColor.Green;
+    int result = dividend / divisor;
+    dividend = (int)result;
+    Console.WriteLine($"\nResult: {result}");
+    Console.ResetColor();
 }
 
-Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine($"\nResult: {(float)dividend/divisor}");
-Console.ResetColor();
 
 static int GetNumber(string text)
 {
