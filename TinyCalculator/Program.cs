@@ -1,24 +1,28 @@
 ﻿Console.WriteLine("=== Tiny Calculator ===");
 
 int number1 = GetNumber("Enter first number: ");
-char sign = GetOperator("Enter operator: ");
-int number2 = GetNumber("Enter second number: ");
-
-if(sign == '/' && number2 == 0)
+while(true)
 {
-    Console.WriteLine("Divisor cannot be 0!");
-    return;
+    char sign = GetOperator("Enter operator: ");
+    int number2 = GetNumber("Enter second number: ");
+
+    if(sign == '/' && number2 == 0)
+    {
+        Console.WriteLine("Divisor cannot be 0!");
+        return;
+    }
+
+    Console.ForegroundColor = ConsoleColor.Green;
+    switch(sign)
+    {
+        case '+': Console.WriteLine($"\nResult: {number1 + number2}"); number1 = number1+number2; break;
+        case '-': Console.WriteLine($"\nResult: {number1 - number2}"); number1 = number1-number2; break;
+        case '*': Console.WriteLine($"\nResult: {number1 * number2}"); number1 = number1*number2; break;
+        case '/': Console.WriteLine($"\nResult: {number1 / number2}"); number1 = number1/number2; break;
+    }
+    Console.ResetColor();
 }
 
-Console.ForegroundColor = ConsoleColor.Green;
-switch(sign)
-{
-    case '+': Console.WriteLine($"\nResult: {number1 + number2}"); break;
-    case '-': Console.WriteLine($"\nResult: {number1 - number2}"); break;
-    case '*': Console.WriteLine($"\nResult: {number1 * number2}"); break;
-    case '/': Console.WriteLine($"\nResult: {number1 / number2}"); break;
-}
-Console.ResetColor();
 
 static char GetOperator(string text)
 {
