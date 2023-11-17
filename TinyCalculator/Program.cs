@@ -1,4 +1,6 @@
-﻿Console.WriteLine("=== Tiny Calculator ===");
+﻿using System.Globalization;
+
+Console.WriteLine("=== Tiny Calculator ===");
 
 int number1 = GetNumber("Enter first number: ");
 while(true)
@@ -50,8 +52,24 @@ static int GetNumber(string text)
     while(true)
     {
         Console.Write(text);
-        if (int.TryParse(Console.ReadLine(), out var number))
+        string userinput = Console.ReadLine();
+        int number = 0;
+        if (userinput.StartsWith("0x"))
+        {
+            try
+            {
+                number = Int32.Parse(userinput.Substring(2), NumberStyles.HexNumber);
+                return number;
+            }
+            catch(Exception e)
+            {
+                continue;
+            }
+        }
+        else if(int.TryParse(userinput, out number))
+        {
             return number;
+        }
         Console.WriteLine("Please enter a valid number!\n");
         attempts++;
         if(attempts == 10)
