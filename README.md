@@ -1,3 +1,3 @@
-# TinyCalculator
+# Tiny calculator
 
 new Test
