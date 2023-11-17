@@ -31,10 +31,10 @@ static char GetOperator(string text)
     while (true)
     {
         Console.Write(text);
-        if (char.TryParse(Console.ReadLine(), out var sign) && (sign == '+' || sign == '-' || sign == '*' || sign == '/'))
+        if (char.TryParse(Console.ReadLine(), out var sign) && (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^'))
             return sign;
 
-        Console.WriteLine("Please enter a valid operator [+, -, /, *]!\n");
+        Console.WriteLine("Please enter a valid operator [+, -, /, *, ^]!\n");
         attempts++;
         if (attempts == 10)
         {
