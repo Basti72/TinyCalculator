@@ -19,6 +19,7 @@ while(true)
         case '-': Console.WriteLine($"\nResult: {number1 - number2}"); number1 = number1-number2; break;
         case '*': Console.WriteLine($"\nResult: {number1 * number2}"); number1 = number1*number2; break;
         case '/': Console.WriteLine($"\nResult: {number1 / number2}"); number1 = number1/number2; break;
+        case '^': Console.WriteLine($"\nResult: {Math.Pow(number1, number2)}"); number1 = (int)Math.Pow(number1, number2); break; 
     }
     Console.ResetColor();
 }
