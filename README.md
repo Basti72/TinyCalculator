@@ -1,2 +1,2 @@
-# TinyCalculator
-Test
+# Tiny calculator
+test
